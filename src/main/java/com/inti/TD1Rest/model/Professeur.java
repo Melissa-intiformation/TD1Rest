@@ -7,7 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -22,23 +24,24 @@ import lombok.RequiredArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class Ecole
+public class Professeur
 {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private @NonNull String nom;
-	private String adresse;
-	private String cp;
-	private @NonNull String ville;
+	private @NonNull String prenom;
+	private double salaire;
 	
-	@OneToMany
-	@JoinColumn (name="idEtudiant")
+	@ManyToOne
+	@JoinColumn(name = "idEcole")
+	private Ecole ecole;
+	
+	@ManyToMany
+	@JoinTable( name="Etudiant_Professeur",
+				joinColumns = @JoinColumn(name= "idProf"),
+				inverseJoinColumns = @JoinColumn(name= "idEtudiant"))
 	private List<Etudiant> listeEtudiant;
-	
-	@OneToMany
-	@JoinColumn (name="idProf")
-	private List<Professeur> listeProf;
-	
 	
 }
