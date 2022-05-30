@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -39,9 +41,12 @@ public class Ecole
 	@JsonIgnore
 	private List<Etudiant> listeEtudiant;
 	
-	@OneToMany
-	@JoinColumn (name="idProf")
-	private List<Professeur> listeProf;
+	@ManyToMany
+	@JoinTable( name="Ecole_Professeur",
+	joinColumns = @JoinColumn(name= "idEcole"),
+	inverseJoinColumns = @JoinColumn(name= "idProf"))
+	@JsonIgnore
+	private List<Professeur> listeProfesseur;
 
 	@Override
 	public String toString()

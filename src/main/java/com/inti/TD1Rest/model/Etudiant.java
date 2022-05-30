@@ -47,6 +47,7 @@ public class Etudiant
 	@JoinTable( name="Etudiant_Professeur",
 				joinColumns = @JoinColumn(name= "idEtudiant"),
 				inverseJoinColumns = @JoinColumn(name= "idProf"))
+	@JsonIgnore
 	private List<Professeur> listeProf;
 
 	@Override
