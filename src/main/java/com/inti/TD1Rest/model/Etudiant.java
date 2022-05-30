@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -45,4 +48,13 @@ public class Etudiant
 				joinColumns = @JoinColumn(name= "idEtudiant"),
 				inverseJoinColumns = @JoinColumn(name= "idProf"))
 	private List<Professeur> listeProf;
+
+	@Override
+	public String toString()
+	{
+		return "Etudiant [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", telephone="
+				+ telephone + ", anneeEtude=" + anneeEtude + "]";
+	}
+	
+	
 }

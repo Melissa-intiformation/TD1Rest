@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,13 +35,19 @@ public class Ecole
 	private String cp;
 	private @NonNull String ville;
 	
-	@OneToMany
-	@JoinColumn (name="idEtudiant")
+	@OneToMany(mappedBy = "ecole")
+	@JsonIgnore
 	private List<Etudiant> listeEtudiant;
 	
 	@OneToMany
 	@JoinColumn (name="idProf")
 	private List<Professeur> listeProf;
+
+	@Override
+	public String toString()
+	{
+		return "Ecole [id=" + id + ", nom=" + nom + ", adresse=" + adresse + ", cp=" + cp + ", ville=" + ville + "]";
+	}
 	
 	
 }
