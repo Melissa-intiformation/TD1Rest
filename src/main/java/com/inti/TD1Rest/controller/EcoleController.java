@@ -57,4 +57,9 @@ public class EcoleController
 		return "School deleted";
 	}
 	
+	@GetMapping("/schoolByEmail/{email}")
+	public Ecole getSchoolByEmail(@PathVariable String email)
+	{
+		return ecoleRepository.findSchoolByEmail(email);
+	}
 }
