@@ -36,23 +36,33 @@ public class Ecole
 	private String adresse;
 	private String cp;
 	private @NonNull String ville;
-	
+
 	@OneToMany(mappedBy = "ecole")
 	@JsonIgnore
 	private List<Etudiant> listeEtudiant;
-	
+
 	@ManyToMany
-	@JoinTable( name="Ecole_Professeur",
-	joinColumns = @JoinColumn(name= "idEcole"),
-	inverseJoinColumns = @JoinColumn(name= "idProf"))
+	@JoinTable(name = "Ecole_Professeur", joinColumns = @JoinColumn(name = "idEcole"), inverseJoinColumns = @JoinColumn(name = "idProf"))
 	@JsonIgnore
 	private List<Professeur> listeProfesseur;
 
+	
+	
 	@Override
 	public String toString()
 	{
 		return "Ecole [id=" + id + ", nom=" + nom + ", adresse=" + adresse + ", cp=" + cp + ", ville=" + ville + "]";
 	}
-	
-	
+
+
+
+	public Ecole(@NonNull String nom, String adresse, String cp, @NonNull String ville)
+	{
+		super();
+		this.nom = nom;
+		this.adresse = adresse;
+		this.cp = cp;
+		this.ville = ville;
+	}
+
 }

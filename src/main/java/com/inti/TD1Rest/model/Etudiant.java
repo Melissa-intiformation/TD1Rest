@@ -56,6 +56,17 @@ public class Etudiant
 		return "Etudiant [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", telephone="
 				+ telephone + ", anneeEtude=" + anneeEtude + "]";
 	}
+
+	public Etudiant(@NonNull String nom, @NonNull String prenom, String email, String telephone,
+			@NonNull int anneeEtude)
+	{
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.anneeEtude = anneeEtude;
+	}
 	
 	
 }

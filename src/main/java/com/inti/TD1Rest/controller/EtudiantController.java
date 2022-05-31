@@ -129,5 +129,10 @@ public class EtudiantController
 		etudiantRepository.deleteById(id);
 		return "student deleted";
 	}
+	
+	@GetMapping("/listStudentsBySchool/{idEcole}")
+	public ResponseEntity<List<Etudiant>> listStudentsBySchool(@PathVariable int idEcole) {
+		return new ResponseEntity<List<Etudiant>>(etudiantRepository.findByIdEcole(idEcole), HttpStatus.OK);
+	}
 
 }

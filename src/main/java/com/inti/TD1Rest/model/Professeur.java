@@ -49,5 +49,14 @@ public class Professeur
 				inverseJoinColumns = @JoinColumn(name= "idEtudiant"))
 	@JsonIgnore
 	private List<Etudiant> listeEtudiant;
+
+	public Professeur(@NonNull String nom, @NonNull String prenom, double salaire)
+	{
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.salaire = salaire;
+	}
+	
 	
 }
