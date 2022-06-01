@@ -73,5 +73,4 @@ public class EtudiantControllerTests
 			e.printStackTrace();
 		}
 	}
-	//commentaire test
 }
