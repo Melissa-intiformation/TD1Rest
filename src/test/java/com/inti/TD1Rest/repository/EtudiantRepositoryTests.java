@@ -67,5 +67,18 @@ public class EtudiantRepositoryTests
 		assertThat(listeEtudiant.get(0).getEcole().getVille().equals("Lyon"));
 	}
 	
+	@Test
+	public void testGetAllStudentsByProf()
+	{
+		// Given
+		int idProf = 1;
+		
+		// When
+		List<Etudiant> listeEtudiant = etudiantRepository.findByProf(idProf);
+
+		// Then
+		assertThat(listeEtudiant).isNotEmpty(); // normalement ce test suffit
+	}
+	
 	
 }

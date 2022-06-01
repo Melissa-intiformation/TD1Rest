@@ -140,5 +140,11 @@ public class EtudiantController
 	{
 		return new ResponseEntity<List<Etudiant>>(etudiantRepository.findByVilleLyon(), HttpStatus.OK);
 	}
+	
+	@GetMapping("/studentsByProf")
+	public ResponseEntity<List<Etudiant>> getAllStudentsByProf(@RequestParam("id") int id)
+	{
+		return new ResponseEntity<List<Etudiant>>(etudiantRepository.findByProf(id), HttpStatus.OK);
+	}
 
 }
