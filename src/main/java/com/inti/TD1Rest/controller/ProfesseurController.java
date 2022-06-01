@@ -51,4 +51,10 @@ public class ProfesseurController
 		professeurRepository.deleteById(id);
 		return "Professeur deleted";
 	}
+	
+	@GetMapping("/sortProfBySalaireBySchoolId/{id}")
+	public List<Professeur> sortProfBySalaireBySchoolId(@PathVariable int id)
+	{
+		return professeurRepository.sortProfBySalaireBySchoolId(id);
+	}
 }
