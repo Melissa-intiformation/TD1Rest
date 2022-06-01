@@ -134,5 +134,11 @@ public class EtudiantController
 	public ResponseEntity<List<Etudiant>> listStudentsBySchool(@PathVariable int idEcole) {
 		return new ResponseEntity<List<Etudiant>>(etudiantRepository.findByIdEcole(idEcole), HttpStatus.OK);
 	}
+	
+	@GetMapping("/studentsInLyon")
+	public ResponseEntity<List<Etudiant>> getAllStudentsInLyon()
+	{
+		return new ResponseEntity<List<Etudiant>>(etudiantRepository.findByVilleLyon(), HttpStatus.OK);
+	}
 
 }
