@@ -47,7 +47,6 @@ public class Ecole
 	private List<Professeur> listeProfesseur;
 
 	
-	
 	@Override
 	public String toString()
 	{
