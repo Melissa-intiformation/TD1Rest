@@ -53,4 +53,19 @@ public class EtudiantRepositoryTests
 		assertThat(listeEtudiant).isNotEmpty(); // normalement ce test suffit
 		assertThat(listeEtudiant).hasSize((int) etudiantRepository.count()); 
 	}
+	
+	@Test
+	public void testGetAllStudentsInLyon()
+	{
+		// Given
+
+		// When
+		List<Etudiant> listeEtudiant = etudiantRepository.findByVilleLyon();
+
+		// Then
+		assertThat(listeEtudiant).isNotEmpty(); // normalement ce test suffit
+		assertThat(listeEtudiant.get(0).getEcole().getVille().equals("Lyon"));
+	}
+	
+	
 }
